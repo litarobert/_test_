@@ -1,0 +1,8 @@
+- datasets:
+  - dataset_id: dataset
+    group_emails:
+    - access_level: OWNER
+      entity_id: data-engineering@adoreme.com
+    - access_level: OWNER
+      entity_id: business-intelligence@adoreme.com
+  project_id: project
