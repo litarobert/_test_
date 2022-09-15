@@ -8,6 +8,7 @@ class TestClass:
         assert isEven(5) == False
         assert isEven(9) == False
 
+
     def test_two(self):
         assert isEven(-5) == False
         assert isEven(-4) == True
