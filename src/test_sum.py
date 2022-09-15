@@ -10,4 +10,4 @@ class TestClass:
         assert sum(10, 2) == 12
         assert sum(-5, -9) == -14
         assert sum(10000, 45) == 10045
-        assert sum(33, 77) == 110
+        assert sum(33, 70) == 103
