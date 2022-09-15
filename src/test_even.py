@@ -6,7 +6,7 @@ class TestClass:
         assert isEven(20) == True
         assert isEven(12312) == True
         assert isEven(5) == False
-        assert isEven(9) == False
+        assert isEven(9) == True 
         assert isEven(13) == False
 
     def test_two(self):
