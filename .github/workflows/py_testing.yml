@@ -2,7 +2,7 @@ name: Test unit tests
 on:
   push:
     branches:
-      - test_branch
+      - main
     paths:
       - 'src/**'
 
@@ -31,11 +31,4 @@ jobs:
     
     - name: echo output
       run: |
-            myarray=(`echo "${{ steps.getfile.outputs.diff }}" | tr '\n' ' '`)
-            for i in ${myarray[@]}; do     
-            list_of_dir+=($(dirname "${i}"))
-            done
-            sorted_dir=($(echo "${list_of_dir[@]}" | tr ' ' '\n' | sort -u | tr '\n' ' '))
-            for i in ${sorted_dir[@]}; do
-            echo "$i"
-            done
+            pytest -q src
