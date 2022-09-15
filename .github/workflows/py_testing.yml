@@ -1,0 +1,41 @@
+name: Test unit tests
+on:
+  push:
+    branches:
+      - test_branch
+    paths:
+      - 'src/**'
+
+jobs:
+  setup-deploy: 
+    name: Setup and Deploy
+    runs-on: ubuntu-latest
+    
+    permissions:
+      contents: 'read'
+      id-token: 'write'
+
+    steps:
+    - name: Check-out
+      uses: actions/checkout@v3
+        
+    - name: get changed files
+      id: getfile
+      run: |
+            git fetch origin ${{ github.event.before }} --depth=1
+            export DIFF=$( git diff --name-only ${{ github.event.before }} $GITHUB_SHA )
+            echo "Diff between ${{ github.event.before }} and $GITHUB_SHA"
+            echo "$DIFF"
+            echo "::set-output name=diff::$( echo "$DIFF" | sed ':a;N;$!ba;s/\n/%0A/g')"
+            echo ${{ github.actor }}
+    
+    - name: echo output
+      run: |
+            myarray=(`echo "${{ steps.getfile.outputs.diff }}" | tr '\n' ' '`)
+            for i in ${myarray[@]}; do     
+            list_of_dir+=($(dirname "${i}"))
+            done
+            sorted_dir=($(echo "${list_of_dir[@]}" | tr ' ' '\n' | sort -u | tr '\n' ' '))
+            for i in ${sorted_dir[@]}; do
+            echo "$i"
+            done
