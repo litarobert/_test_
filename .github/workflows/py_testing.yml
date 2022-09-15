@@ -16,6 +16,17 @@ jobs:
     steps:
     - name: Check-out
       uses: actions/checkout@v3
+      
+    - name: Install Python 3
+      uses: actions/setup-python@v1
+      with:
+        python-version: 3.9
+        
+    - name: get changed files
+      id: requirements
+      run: |
+            python -m pip install --upgrade pip
+            pip install pytest
         
     - name: get changed files
       id: getfile
