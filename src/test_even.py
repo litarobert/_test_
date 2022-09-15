@@ -12,4 +12,4 @@ class TestClass:
         assert isEven(-5) == False
         assert isEven(-4) == True
         assert isEven(0) == True
-        assert isEven(1000001) == True
+        assert isEven(1000000) == True
