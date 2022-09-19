@@ -7,7 +7,7 @@ class TestClass:
         assert isEven(12312) == True
         assert isEven(5) == False
         assert isEven(9) == False
-        assert isEven(15) == False
+        assert isEven(12) == False
 
     def test_two(self):
         assert isEven(-5) == False
