@@ -22,7 +22,7 @@ jobs:
       with:
         python-version: 3.9
         
-    - name: get changed files
+    - name: install pytest
       id: requirements
       run: |
             python -m pip install --upgrade pip
