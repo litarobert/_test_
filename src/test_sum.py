@@ -3,6 +3,7 @@ from sum import sum
 
 class TestClass:
     def test_one(self):
+        assert sum(1, 2) == 3
         assert sum(10, 20) == 30
         assert sum(90, 10) == 100
 
