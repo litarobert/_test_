@@ -1,0 +1,32 @@
+name: Test unit tests delia
+on:
+  pull_request:
+    branch:
+      - main
+
+jobs:
+  setup_deploy:
+    name: Install and Run
+    runs-on: ubuntu_latest
+
+  steps:
+    - name: Check-out
+      uses: actions/checkout@v3
+
+    - name: Install Python 3
+      uses: actions/setup-python@v1
+      with:
+        python-version: 3.9
+
+    -name: Install pytest
+      id: requirements
+      run: |
+        python -m pip install --uprade pip
+        pip install pytest
+
+    -name: Run tests
+      run: |
+      pytest -q src
+
+      
+
